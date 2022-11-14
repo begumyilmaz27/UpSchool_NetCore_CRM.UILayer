@@ -21,9 +21,4 @@
     <ProjectReference Include="..\NetCore_CRM.EntityLayer\NetCore_CRM.EntityLayer.csproj" />
   </ItemGroup>
 
-  <ItemGroup>
-    <Folder Include="EntityFramework\" />
-    <Folder Include="Repository\" />
-  </ItemGroup>
-
 </Project>

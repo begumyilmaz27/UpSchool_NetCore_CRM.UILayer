@@ -3,7 +3,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 namespace NetCore_CRM.DataAccessLayer.Migrations
 {
-    public partial class mig_firstmigration : Migration
+    public partial class CRM_firstmigration : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {

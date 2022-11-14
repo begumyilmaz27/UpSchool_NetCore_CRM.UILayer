@@ -10,8 +10,8 @@ using NetCore_CRM.DataAccessLayer.Concrete;
 namespace NetCore_CRM.DataAccessLayer.Migrations
 {
     [DbContext(typeof(Context))]
-    [Migration("20221114022022_mig_firstmigration")]
-    partial class mig_firstmigration
+    [Migration("20221114181840_CRM_firstmigration")]
+    partial class CRM_firstmigration
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
