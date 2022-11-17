@@ -1,0 +1,16 @@
+﻿@model NetCore_CRM.EntityLayer.Concrete.Category
+@{
+    ViewData["Title"] = "AddCategory";
+    Layout = "~/Views/Shared/_CrmLayout.cshtml";
+}
+
+<h1>Yeni Kategori Sayfası</h1>
+<link href="~/lib/bootstrap/dist/css/bootstrap.css" rel="stylesheet" />
+
+<form method="post">
+    <label>Kategori Adı</label>
+    <input type="text" asp-for="CategoryName" class="form-control" />
+    <label>Kategori Açıklaması</label>
+    <input type="text" asp-for="CategoryDecription" class="form-control" />
+    <button type="submit" class="btn btn-dark" style="border-radius:10%">Kategori Ekle</button>
+</form>

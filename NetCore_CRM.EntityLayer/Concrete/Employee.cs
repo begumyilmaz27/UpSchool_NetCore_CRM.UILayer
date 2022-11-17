@@ -15,8 +15,14 @@ namespace NetCore_CRM.EntityLayer.Concrete
         public string EmployeeSurname { get; set; }
         public string EmployeeMail { get; set; }
         public string EmployeeImage { get; set; }
+
+        //..........................................
         public int CategoryID { get; set; }
         public Category Category { get; set; }
+        
+        //Employew tablom içinde bir CategoryID sütunu olacak ve bunu Category sınıfınfan türetilen bir Category propertisi aracılığı ilişkiyi kuracak. 
+
+        //..........................................
         public bool EmployeeStatus { get; set; }
     }
 }

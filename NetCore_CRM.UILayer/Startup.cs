@@ -4,6 +4,10 @@ using Microsoft.AspNetCore.HttpsPolicy;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
+using NetCore_CRM.BusinessLayer.Abstract;
+using NetCore_CRM.BusinessLayer.Concrete;
+using NetCore_CRM.DataAccessLayer.Abstract;
+using NetCore_CRM.DataAccessLayer.EntityFramework;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -23,6 +27,12 @@ namespace NetCore_CRM.UILayer
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
+            services.AddScoped<ICategoryService, CategoryManager>(); //Kategori servisi gördüðün yerde kategori manager'i çaðýr demek 
+            //Yukarýdaki Service-Manager kýsmý için
+
+            services.AddScoped<ICategoryDal, EFCategoryDal>();
+            //Yukarýdaki Interface ve EntityFramework kýsmý
+
             services.AddControllersWithViews();
         }
 

@@ -13,7 +13,7 @@ namespace NetCore_CRM.EntityLayer.Concrete
         public int CategoryID { get; set; }
         public string CategoryName { get; set; }
         public string CategoryDecription { get; set; }
-        //public ICollection<Employee> Employees { get; set; }
+        public ICollection<Employee> Employees { get; set; }
 
     }
 }
