@@ -9,5 +9,6 @@ namespace NetCore_CRM.BusinessLayer.Abstract
 {
     public interface IEmployeeService : IGenericService<Employee>
     {
+        List<Employee> TGetEmployeesByCategory();
     }
 }

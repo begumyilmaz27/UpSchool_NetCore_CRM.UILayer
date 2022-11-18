@@ -33,6 +33,9 @@ namespace NetCore_CRM.UILayer
             services.AddScoped<ICategoryDal, EFCategoryDal>();
             //Yukarýdaki Interface ve EntityFramework kýsmý
 
+            services.AddScoped<IEmployeeService, EmployeeManager>();
+            services.AddScoped<IEmployeeDal, EFEmployeeDal>();
+
             services.AddControllersWithViews();
         }
 

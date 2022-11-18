@@ -28,6 +28,11 @@ namespace NetCore_CRM.BusinessLayer.Concrete
             return _employeeDal.GetByID(id);
         }
 
+        public List<Employee> TGetEmployeesByCategory()
+        {
+            return _employeeDal.GetEmployeesByCategory();   
+        }
+
         public List<Employee> TGetList()
         {
             return _employeeDal.GetList();
