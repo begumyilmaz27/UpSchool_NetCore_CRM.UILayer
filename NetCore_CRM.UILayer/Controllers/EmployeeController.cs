@@ -5,16 +5,20 @@ using NetCore_CRM.BusinessLayer.Abstract;
 using NetCore_CRM.BusinessLayer.ValidationRules;
 using NetCore_CRM.EntityLayer.Concrete;
 using System.Collections.Generic;
+using System.Linq;
 
 namespace NetCore_CRM.UILayer.Controllers
 {
     public class EmployeeController : Controller
     {
         private readonly IEmployeeService _employeeService;
+        private readonly ICategoryService _categoryService;
 
-        public EmployeeController(IEmployeeService employeeService)
+
+        public EmployeeController(IEmployeeService employeeService, ICategoryService categoryService)
         {
             _employeeService = employeeService;
+            _categoryService = categoryService;
         }
 
         public IActionResult Index()
@@ -25,13 +29,13 @@ namespace NetCore_CRM.UILayer.Controllers
         [HttpGet]
         public IActionResult AddEmployee()
         {
-            //List<SelectListItem> categoryValues = (from x in _categoryService.TGetList()
-            //                                       select new SelectListItem
-            //                                       {
-            //                                           Text = x.CategoryName,
-            //                                           Value = x.CategoryID.ToString()
-            //                                       }).ToList();
-            //ViewBag.v = categoryValues;
+            List<SelectListItem> categoryValues = (from x in _categoryService.TGetList()   
+                                                   select new SelectListItem
+                                                   {
+                                                       Text = x.CategoryName,
+                                                       Value = x.CategoryID.ToString()
+                                                   }).ToList();
+            ViewBag.v = categoryValues;
             return View();
         }
 
@@ -71,5 +75,33 @@ namespace NetCore_CRM.UILayer.Controllers
             _employeeService.TDelete(values);
             return RedirectToAction("Index");
         }
+        public IActionResult ChangeStatusToFalse(int id)
+        {
+            _employeeService.TChangeEmployeeStatusToFalse(id);
+            return RedirectToAction("Index");
+        }
+        public IActionResult ChangeStatusToTrue(int id)
+        {
+            _employeeService.TChangeEmployeeStatusToTrue(id);
+            return RedirectToAction("Index");
+        }
+        [HttpGet]
+        public IActionResult UpdateEmployee(int id)
+        {
+            var values = _employeeService.TGetByID(id);
+            return View(values);
+        }
+
+        [HttpPost]
+        public IActionResult UpdateEmployee(Employee employee)
+        {
+            var values = _employeeService.TGetByID(employee.EmployeeID);
+            employee.EmployeeStatus = values.EmployeeStatus;
+            _employeeService.TUpdate(employee);
+            return RedirectToAction("Index");
+        }
+
+
+
     }
 }
