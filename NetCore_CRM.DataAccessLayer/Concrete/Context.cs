@@ -1,4 +1,5 @@
-﻿using Microsoft.EntityFrameworkCore;
+﻿using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
+using Microsoft.EntityFrameworkCore;
 using NetCore_CRM.EntityLayer.Concrete;
 using System;
 using System.Collections.Generic;
@@ -8,7 +9,7 @@ using System.Threading.Tasks;
 
 namespace NetCore_CRM.DataAccessLayer.Concrete
 {
-    public class Context:DbContext
+    public class Context:IdentityDbContext<AppUser,AppRole,int>
     {
         //OnConfiguring burada bir inşaa etme yapacak. Bu inşaa bir SQL adresi tanımlama şeklinde olacak
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)        

@@ -11,6 +11,11 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "NetCore_CRM.BusinessLayer",
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "NetCore_CRM.DataAccessLayer", "NetCore_CRM.DataAccessLayer\NetCore_CRM.DataAccessLayer.csproj", "{7772DE14-7BAC-4BC5-A0DF-F4A332BBEB59}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "notlar", "notlar", "{A6DC0535-33E3-4A7E-B4F0-B94860D9AC57}"
+	ProjectSection(SolutionItems) = preProject
+		notlar.txt = notlar.txt
+	EndProjectSection
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU

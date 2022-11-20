@@ -7,7 +7,10 @@ using Microsoft.Extensions.Hosting;
 using NetCore_CRM.BusinessLayer.Abstract;
 using NetCore_CRM.BusinessLayer.Concrete;
 using NetCore_CRM.DataAccessLayer.Abstract;
+using NetCore_CRM.DataAccessLayer.Concrete;
 using NetCore_CRM.DataAccessLayer.EntityFramework;
+using NetCore_CRM.EntityLayer.Concrete;
+using NetCore_CRM.UILayer.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -36,6 +39,10 @@ namespace NetCore_CRM.UILayer
             services.AddScoped<IEmployeeService, EmployeeManager>();
             services.AddScoped<IEmployeeDal, EFEmployeeDal>();
 
+            //AddEntityFrameworkStores EntityFramework içinde kullan demek. Parametre olarak Context alýr. 
+            services.AddDbContext<Context>();
+            services.AddIdentity<AppUser, AppRole>().AddErrorDescriber<CustomIdentityValidator>().AddEntityFrameworkStores<Context>();
+
             services.AddControllersWithViews();
         }
 
@@ -54,6 +61,8 @@ namespace NetCore_CRM.UILayer
             }
             app.UseHttpsRedirection();
             app.UseStaticFiles();
+
+            app.UseAuthentication();
 
             app.UseRouting();
 
