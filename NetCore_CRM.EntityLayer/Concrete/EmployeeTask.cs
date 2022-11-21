@@ -13,8 +13,8 @@ namespace NetCore_CRM.EntityLayer.Concrete
         public string Details { get; set; }
         public string Status { get; set; }
         public DateTime Date { get; set; }
-        //public int AppUserID { get; set; }
-        //public AppUser AppUser { get; set; }
-        //public List<EmployeeTaskDetail> EmployeeTaskDetails { get; set; }
+        public int AppUserID { get; set; }
+        public AppUser AppUser { get; set; }
+        public List<EmployeeTaskDetail> EmployeeTaskDetails { get; set; }
     }
 }

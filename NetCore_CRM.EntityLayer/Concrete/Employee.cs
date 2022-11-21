@@ -24,5 +24,6 @@ namespace NetCore_CRM.EntityLayer.Concrete
 
         //..........................................
         public bool EmployeeStatus { get; set; }
+        public List<EmployeeTask> EmployeeTasks { get; set; }
     }
 }
